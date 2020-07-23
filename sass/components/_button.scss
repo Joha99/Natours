@@ -1,0 +1,80 @@
+.btn {
+  /*
+  Pseudo classes are a special state of a selector.
+  Link is a special state of a selector when it is an unvisited link.
+  Visited is a state when the user has already clicked on the button once before and sees the button again.
+ */
+  &:link,
+  &:visited {
+    /* capitalization of text */
+    text-transform: uppercase;
+    /* appearance of decorative lines in text */
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    /*
+   The transition CSS property is a shorthand property for
+   transition-property, transition-duration, transition-timing-function,
+   and transition-delay. The transition-property CSS property sets
+   the CSS properties to which a transition effect should be applied.
+   */
+    transition: all 0.2s;
+    position: relative;
+  }
+
+  &:hover {
+    /* lifts element up in Y direction */
+    transform: translateY(-0.3rem);
+    /* define x and y offset & blur of shadow */
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+
+  /* when the btn has been clicked on */
+  &:active {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem;
+  }
+
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+  /*
+ A CSS pseudo-element is a keyword added to a selector that
+ lets you style a specific part of the selected element(s).
+ In CSS, ::after creates a pseudo-element that is the last
+ child of the selected element.
+ */
+  &::after {
+    content: '';
+    display: inline-block;
+    /* This is like a child of btn element, so height and width
+   are 100% of the btn, not the textbox. */
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.7s;
+  }
+
+  &--animated {
+    animation: moveInBottom 2s ease-out 1s;
+    /* automatically applies styles at zero
+   percent before the animation starts */
+    animation-fill-mode: backwards;
+  }
+}

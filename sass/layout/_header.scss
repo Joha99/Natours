@@ -1,0 +1,40 @@
+.header {
+  /* height of box is 95% of viewport height */
+  height: 95vh;
+  /* leftmost image is at the top */
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.801),
+      rgba($color-primary-dark, 0.801)
+    ),
+    url(../img/hero.jpg);
+  /* whatever width of the container, fits all of element to fit to that width */
+  background-size: cover;
+  /* ensures that top of background is always at top of container */
+  background-position: top;
+  /* specify polygon in which the element will be visible */
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+  position: relative;
+
+  &__logo-box {
+    /* sets position from the ancestor element set to position relative */
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
+
+  &__logo {
+    height: 3.5rem;
+  }
+
+  &__text-box {
+    /* centers textbox in ancestor element with position relative */
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    /* shifts x by 50% of element's width & y by 50% of element's height */
+    transform: translate(-50%, -50%);
+    backface-visibility: hidden;
+    text-align: center;
+  }
+}
