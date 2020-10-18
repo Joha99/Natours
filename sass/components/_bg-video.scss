@@ -1,0 +1,21 @@
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.15;
+  overflow: hidden;
+
+  &__content {
+    height: 100%;
+    width: 100%;
+    /*The replaced content is sized to maintain 
+    its aspect ratio while filling the element’s 
+    entire content box. If the object's aspect 
+    ratio does not match the aspect ratio of its box, 
+    then the object will be clipped to fit.*/
+    object-fit: cover;
+  }
+}

@@ -13,6 +13,7 @@
   /* ensures that top of background is always at top of container */
   background-position: top;
   /* specify polygon in which the element will be visible */
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
   position: relative;
 
