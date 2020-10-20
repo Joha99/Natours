@@ -12,3 +12,61 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+// MEDIA QUERY MANAGER
+/*
+0-600px:        phone                       (max-width)
+600-900px:      tablet portrait             (max-width)
+900-1200px:     landscape                   (max-width)
+1200-1800px:    where normal styles apply   (none)
+1800-up:        big desktop                 (min-width)
+
+@mixin respond-phone {
+  @media (max-width: 600px) {
+    @content;
+  }
+}
+*/
+
+/*
+$breakpoint argument choices: 
+- phone 
+- tab-port
+- tab-land 
+- big-desktop 
+
+1em = 16px 
+
+Using @content allows us to write code in the 
+respective sass files
+*/
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    // 600px
+    @media (max-width: 37.5em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tab-port {
+    // 900px
+    @media (max-width: 56.25em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tab-land {
+    // 1200px
+    @media (max-width: 75em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == big-desktop {
+    // 1800px
+    @media (min-width: 112.5em) {
+      @content;
+    }
+  }
+}
