@@ -23,6 +23,8 @@ $breakpoint argument choices:
 
 Using @content allows us to write code in the 
 respective sass files
+
+Order: base + typography > general layout + grid > page layout > components
 */
 @keyframes moveInLeft {
   0% {
@@ -61,44 +63,41 @@ respective sass files
   box-sizing: inherit; }
 
 html {
-  font-size: 50%; }
-  @media (max-width: 37.5em) {
-    html {
-      font-size: 50%; } }
-  @media (max-width: 56.25em) {
-    html {
-      font-size: 60%; } }
+  font-size: 62.6%; }
   @media (max-width: 75em) {
     html {
-      font-size: 70%; } }
+      font-size: 56.25%; } }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
   @media (min-width: 112.5em) {
     html {
-      font-size: 80%; } }
+      font-size: 75%; } }
 
 body {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  padding: 3rem; }
+  @media (max-width: 56.25em) {
+    body {
+      padding: 0; } }
 
 body {
   font-family: 'Lato', sans-serif;
   font-weight: 400;
-  /* font-size: 16px; */
   font-size: 1.6rem;
   line-height: 1.7;
-  color: #777;
-  padding: 3rem; }
+  color: #777; }
 
 .heading-primary {
   color: #fff;
-  /* sets capitalization of text */
   text-transform: uppercase;
   margin-bottom: 6rem; }
   .heading-primary--main {
     display: block;
     font-size: 6rem;
     font-weight: 400;
-    /* sets spacing between chars in text */
     letter-spacing: 3.5rem;
-    /* sets animation */
+    /* animation */
     animation-name: moveInLeft;
     animation-duration: 2s;
     animation-timing-function: ease-out;
@@ -106,12 +105,19 @@ body {
     animation-delay: 3s;
     animation-iteration-count: 3;
     */ }
+    @media (max-width: 37.5em) {
+      .heading-primary--main {
+        letter-spacing: 1rem;
+        font-size: 5rem; } }
   .heading-primary--sub {
     display: block;
     font-size: 2rem;
     font-weight: 700;
     letter-spacing: 1.7rem;
     animation: moveInRight 2s ease-out; }
+    @media (max-width: 37.5em) {
+      .heading-primary--sub {
+        letter-spacing: 0.5rem; } }
 
 .heading-secondary {
   font-size: 3.5rem;
@@ -119,10 +125,17 @@ body {
   font-weight: bold;
   display: inline-block;
   background-image: linear-gradient(to right, #7ed56f, #28b485);
+  /* clips background image to the shape of the text */
   -webkit-background-clip: text;
   color: transparent;
   letter-spacing: 2px;
   transition: all 0.2s; }
+  @media (max-width: 56.25em) {
+    .heading-secondary {
+      font-size: 3rem; } }
+  @media (max-width: 37.5em) {
+    .heading-secondary {
+      font-size: 2.5rem; } }
   .heading-secondary:hover {
     transform: skewY(2deg) skewX(15deg) scale(1.1);
     text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2); }
@@ -226,7 +239,13 @@ body {
 
 .row {
   max-width: 114rem;
-  margin: 0 auto; }
+  margin: 0 auto;
+  /*
+  attribute selector
+  selects elements whose class attribute start with col-
+  ^= starts with
+  $= ends with
+  */ }
   .row:not(:last-child) {
     margin-bottom: 8rem; }
   .row::after {

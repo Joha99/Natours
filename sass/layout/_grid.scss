@@ -1,24 +1,20 @@
 .row {
-  // When given enough space, sets width as $grid-width
   max-width: $grid-width;
-  // background-color: #eee;
   margin: 0 auto;
 
-  // selects everything except the last child
   &:not(:last-child) {
     margin-bottom: $gutter-vertical;
   }
 
-  // adds a mixin
   @include clearfix;
 
-  // attribute selector
-  // selects elements whose class attribute start with col-
-  // ^= starts with
-  // $= ends with
-
+  /*
+  attribute selector
+  selects elements whose class attribute start with col-
+  ^= starts with
+  $= ends with
+  */
   [class^='col-'] {
-    // background-color: orangered;
     float: left;
 
     &:not(:last-child) {

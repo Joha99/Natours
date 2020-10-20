@@ -1,16 +1,13 @@
 body {
   font-family: 'Lato', sans-serif;
   font-weight: 400;
-  /* font-size: 16px; */
   font-size: 1.6rem;
   line-height: 1.7;
   color: $color-grey-dark;
-  padding: 3rem;
 }
 
 .heading-primary {
   color: $color-white;
-  /* sets capitalization of text */
   text-transform: uppercase;
   margin-bottom: 6rem;
 
@@ -18,12 +15,17 @@ body {
     display: block;
     font-size: 6rem;
     font-weight: 400;
-    /* sets spacing between chars in text */
     letter-spacing: 3.5rem;
-    /* sets animation */
+
+    /* animation */
     animation-name: moveInLeft;
     animation-duration: 2s;
     animation-timing-function: ease-out;
+
+    @include respond(phone) {
+      letter-spacing: 1rem; 
+      font-size: 5rem;
+    }
 
     /*
     animation-delay: 3s;
@@ -34,9 +36,13 @@ body {
   &--sub {
     display: block;
     font-size: 2rem;
-    font-weight: 700; 
+    font-weight: 700;
     letter-spacing: 1.7rem;
     animation: moveInRight 2s ease-out;
+
+    @include respond(phone) {
+      letter-spacing: 0.5rem; 
+    }
   }
 }
 
@@ -50,11 +56,20 @@ body {
     $color-primary-light,
     $color-primary-dark
   );
-  // clips background image to the shape of the text
+
+  /* clips background image to the shape of the text */
   -webkit-background-clip: text;
   color: transparent;
   letter-spacing: 2px;
   transition: all 0.2s;
+
+  @include respond(tab-port) {
+    font-size: 3rem; 
+  }
+
+  @include respond(phone) {
+    font-size: 2.5rem; 
+  }
 
   &:hover {
     transform: skewY(2deg) skewX(15deg) scale(1.1);
@@ -63,13 +78,13 @@ body {
 }
 
 .heading-tertiary {
-  font-size: 1.6rem; 
+  font-size: 1.6rem;
   font-weight: 700;
-  text-transform: uppercase; 
+  text-transform: uppercase;
 }
 
 .paragraph {
-  font-size: 1.6rem; 
+  font-size: 1.6rem;
 
   &:not(:last-child) {
     margin-bottom: 3rem;
