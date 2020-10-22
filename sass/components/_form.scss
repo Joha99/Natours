@@ -12,8 +12,12 @@
     color: inherit;
     transition: all 0.3s;
 
+    @include respond(tab-port) {
+      width: 100%;
+    }
+
     &:focus {
-      // removes blue outline around input
+      /* removes blue outline around input */
       outline: none;
       box-shadow: 0 0.8rem 1rem rgba($color: $color-black, $alpha: 0.2);
       border-bottom: 3px solid $color-primary;
@@ -34,16 +38,16 @@
     margin-left: 2rem;
     margin-top: 0.7rem;
     display: block;
-    // as soon as placeholder is gone, label will animate itself below input
+    /* as soon as placeholder is gone, label will animate itself below input */
     transition: all 0.3s;
   }
 
   /* when placeholder is shown (nothing's written in input), 
   select the label that is adjacent to the input */
   &__input:placeholder-shown + &__label {
-    // need opacity in order to create animation
+    /* need opacity in order to create animation */
     opacity: 0;
-    // visibility: hidden elements cannot consume clicks
+    /* visibility: hidden elements cannot consume clicks */
     visibility: hidden;
     transform: translateY(-4rem);
   }
@@ -59,6 +63,11 @@
   &__radio-group {
     width: 49%;
     display: inline-block;
+
+    @include respond(tab-port) {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
   }
 
   &__radio-label {
@@ -75,17 +84,17 @@
     border-radius: 50%;
     display: inline-block;
     position: absolute;
-    left: 0; 
+    left: 0;
     top: -0.5rem;
 
     &::after {
-      content: ""; 
+      content: '';
       display: block;
-      height: 1.3rem; 
+      height: 1.3rem;
       width: 1.3rem;
       border-radius: 50%;
       position: absolute;
-      top: 50%; 
+      top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       background-color: $color-primary;

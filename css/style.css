@@ -478,12 +478,25 @@ body {
 .book {
   background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 50%, transparent 50%), url("../img/nat-10.jpg");
   background-size: cover;
-  height: 50rem;
   border-radius: 3px;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.3); }
+  @media (max-width: 75em) {
+    .book {
+      background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 65%, transparent 65%), url("../img/nat-10.jpg");
+      background-size: cover; } }
+  @media (max-width: 56.25em) {
+    .book {
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 100%), url("../img/nat-10.jpg");
+      background-size: cover; } }
   .book__form {
     width: 50%;
     padding: 6rem; }
+    @media (max-width: 75em) {
+      .book__form {
+        width: 65%; } }
+    @media (max-width: 56.25em) {
+      .book__form {
+        width: 100%; } }
 
 .btn {
   /*
@@ -783,6 +796,14 @@ body {
   transform: skewX(-12deg);
   /*alters caption when hovered over story*/
   /*alters image when hovered over story*/ }
+  @media (max-width: 56.25em) {
+    .story {
+      width: 100%;
+      padding: 4rem;
+      padding-left: 7rem; } }
+  @media (max-width: 37.5em) {
+    .story {
+      transform: skewX(0); } }
   .story__shape {
     width: 15rem;
     height: 15rem;
@@ -796,6 +817,9 @@ body {
       Use transform to shift element.*/
     transform: translateX(-3rem) skewX(12deg);
     position: relative; }
+    @media (max-width: 37.5em) {
+      .story__shape {
+        transform: translateX(-3rem) skewX(0); } }
   .story__img {
     height: 100%;
     transform: translateX(-4rem) scale(1.4);
@@ -803,6 +827,9 @@ body {
     transition: all 0.5s; }
   .story__text {
     transform: skewX(12deg); }
+    @media (max-width: 37.5em) {
+      .story__text {
+        transform: skewX(0); } }
   .story__caption {
     position: absolute;
     top: 50%;
@@ -857,7 +884,11 @@ body {
     display: block;
     color: inherit;
     transition: all 0.3s; }
+    @media (max-width: 56.25em) {
+      .form__input {
+        width: 100%; } }
     .form__input:focus {
+      /* removes blue outline around input */
       outline: none;
       box-shadow: 0 0.8rem 1rem rgba(0, 0, 0, 0.2);
       border-bottom: 3px solid #55c57a; }
@@ -871,9 +902,12 @@ body {
     margin-left: 2rem;
     margin-top: 0.7rem;
     display: block;
+    /* as soon as placeholder is gone, label will animate itself below input */
     transition: all 0.3s; }
   .form__input:placeholder-shown + .form__label {
+    /* need opacity in order to create animation */
     opacity: 0;
+    /* visibility: hidden elements cannot consume clicks */
     visibility: hidden;
     transform: translateY(-4rem); }
   .form__group:not(:last-child) {
@@ -883,6 +917,10 @@ body {
   .form__radio-group {
     width: 49%;
     display: inline-block; }
+    @media (max-width: 56.25em) {
+      .form__radio-group {
+        width: 100%;
+        margin-bottom: 2rem; } }
   .form__radio-label {
     font-size: 1.6rem;
     cursor: pointer;
@@ -898,7 +936,7 @@ body {
     left: 0;
     top: -0.5rem; }
     .form__radio-button::after {
-      content: "";
+      content: '';
       display: block;
       height: 1.3rem;
       width: 1.3rem;
