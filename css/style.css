@@ -959,6 +959,7 @@ body {
   top: 0;
   left: 0;
   z-index: 9999;
+  /* display: none; -> cannot animate elements with display: none */
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s; }
@@ -996,16 +997,23 @@ body {
     transition: all 0.5s 0.2s; }
   .popup__left {
     width: 33.333%;
-    background-color: orangered;
     display: table-cell; }
+    @media (max-width: 75em) {
+      .popup__left {
+        display: none; } }
   .popup__img {
     display: block;
-    width: 100%; }
+    width: 100%;
+    height: 10rem; }
   .popup__right {
     width: 66.667%;
     display: table-cell;
     vertical-align: middle;
     padding: 3rem 5rem; }
+    @media (max-width: 75em) {
+      .popup__right {
+        width: 100%;
+        display: block; } }
   .popup__text {
     font-size: 1.4rem;
     margin-bottom: 4rem;
