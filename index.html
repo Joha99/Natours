@@ -63,7 +63,9 @@
           <span class="heading-primary--sub">is where life happens </span>
         </h1>
 
-        <a href="#section-tours" class="btn btn--white btn--animated">Discover our tours</a>
+        <a href="#section-tours" class="btn btn--white btn--animated"
+          >Discover our tours</a
+        >
       </div>
     </header>
 
@@ -263,7 +265,7 @@
                     <p class="card__price-value">$897</p>
                   </div>
                   <a href="#popup" class="btn btn--white">Book Now</a>
-                </div> 
+                </div>
               </div>
             </div>
           </div>
@@ -415,7 +417,30 @@
 
     <footer class="footer">
       <div class="footer__logo-box">
-        <img src="img/logo-green-2x.png" alt="Full logo" class="footer__logo" />
+        <!-- responsive images: art direction -->
+        <picture class="footer__logo">
+          <!-- source defines image to display if screen width < 37.5rem -->
+          <source
+            srcset="
+              img/logo-green-small-1x.png 1x,
+              img/logo-green-small-2x.png 2x
+            "
+            media="(max-width: 37.5em)"
+          />
+          <!-- img defines fallback image to display -->
+          <img
+            srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x"
+            alt="Full logo"
+            class="footer__logo"
+          />
+        </picture>
+
+        <!-- responsive images: density switching -->
+        <!-- <img
+          srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x"
+          alt="Full logo"
+          class="footer__logo"
+        /> -->
       </div>
       <div class="row">
         <!-- footer navigation -->

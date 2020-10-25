@@ -997,14 +997,15 @@ body {
     transition: all 0.5s 0.2s; }
   .popup__left {
     width: 33.333%;
-    display: table-cell; }
+    display: table-cell;
+    height: 100%; }
     @media (max-width: 75em) {
       .popup__left {
         display: none; } }
   .popup__img {
     display: block;
     width: 100%;
-    height: 10rem; }
+    height: 26rem; }
   .popup__right {
     width: 66.667%;
     display: table-cell;
