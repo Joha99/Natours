@@ -6,7 +6,7 @@
       rgba($color-primary-light, 0.801),
       rgba($color-primary-dark, 0.801)
     ),
-    url(../img/hero.jpg);
+    url(../img/hero-small.jpg);
   /* whatever width of the container, fits all of element to fit to that width */
   background-size: cover;
   /* ensures that top of background is always at top of container */
@@ -15,6 +15,16 @@
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
   position: relative;
+
+  /* if resolution and width meets this condition, use a better resolution picture */
+  @media (min-resolution: 192dpi) and (min-width: 600px), (min-width: 2000px) {
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-secondary-light, 0.801),
+        rgba($color-secondary-dark, 0.801)
+      ),
+      url(../img/hero.jpg);
+  }
 
   @include respond(phone) {
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
