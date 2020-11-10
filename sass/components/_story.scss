@@ -3,7 +3,6 @@
   margin: 0 auto;
   box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
   background-color: rgba($color-white, 0.6);
-  // background-color: rgba($color-black, 0.6);
   border-radius: 3px;
   padding: 6rem;
   padding-left: 9rem;
@@ -25,17 +24,22 @@
     height: 15rem;
     float: left;
 
-    /*defines a shape—which may be non-rectangular—around which adjacent inline content should wrap. By default, inline content wraps around its margin box; shape-outside provides a way to customize this wrapping, making it possible to wrap text around complex objects rather than simple boxes.*/
-    shape-outside: circle(50% at 50% 50%);
-    -webkit-shape-outside: circle(50% at 50% 50%);
-
-    clip-path: circle(50% at 50% 50%);
-    -webkit-clip-path: circle(50% at 50% 50%);
-
-    /*Try not to mess with margins with floated elements. 
-      Use transform to shift element.*/
+    /*Try not to mess with margins with floated elements. Use transform to shift element.*/
     transform: translateX(-3rem) skewX(12deg);
     position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+      clip-path: circle(50% at 50% 50%);
+      -webkit-clip-path: circle(50% at 50% 50%);
+
+      /*defines a shape—which may be non-rectangular—around which adjacent inline content should wrap. By default, inline content wraps around its margin box; shape-outside provides a way to customize this wrapping, making it possible to wrap text around complex objects rather than simple boxes.*/
+      shape-outside: circle(50% at 50% 50%);
+      -webkit-shape-outside: circle(50% at 50% 50%);
+
+      border-radius: none;
+    }
 
     @include respond(phone) {
       transform: translateX(-3rem) skewX(0);

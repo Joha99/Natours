@@ -1,5 +1,5 @@
 .header {
-  height: 95vh;
+  height: 80vh;
   /* leftmost image is at the top */
   background-image: linear-gradient(
       to right bottom,
@@ -11,16 +11,22 @@
   background-size: cover;
   /* ensures that top of background is always at top of container */
   background-position: top;
-  /* specify polygon in which the element will be visible */
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
   position: relative;
 
-  @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
+  @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+    /* specify polygon in which the element will be visible */
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+    height: 95vh;
+  }
+
+  @media (min-resolution: 192dpi) and (min-width: 37.5em),
+    (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+    (min-width: 125em) {
     background-image: linear-gradient(
         to right bottom,
-        rgba($color-secondary-light, 0.801),
-        rgba($color-secondary-dark, 0.801)
+        rgba($color-primary-light, 0.801),
+        rgba($color-primary-dark, 0.801)
       ),
       url(../img/hero.jpg);
   }
